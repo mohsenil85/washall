@@ -1,24 +1,25 @@
 public class Graph {
-	private String vertices = "";
+	private Vertex[] vertices = new Vertex[30];
 	private int graphSize = 0;
 	private boolean oneOrZero = false;
 	private int[][] array;
 	
-	private int[][] initArray(int size) {
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				array[i][j] = 0;
-			}
+	
+	private class Vertex{
+		char name;
+		int index;
+		private Vertex(char name, int index){
+			this.name = name;
+			this.index = index;
 		}
-		return array;
+		
 	}
-
+	
 	public void printGraph() {
-		array = initArray(graphSize);
 			System.out.print(" ");
 		for (int i = 0; i < graphSize; i++) {
 			System.out.print("   ");
-			System.out.print(vertices.charAt(i) + "  ");// top line
+			System.out.print(vertices[i].name + "  ");// top line
 
 		}
 		System.out.println();
@@ -28,14 +29,10 @@ public class Graph {
 		}
 		System.out.println();
 		for (int j = 0; j < graphSize; j++) {// vertical edge
-			System.out.print(vertices.charAt(j) + "   ");
+			System.out.print(vertices[j].name + "   ");
 
 			for (int k = 0; k < graphSize; k++) {// stuff inside chart
-				if (oneOrZero){
 				System.out.print(array[j][k]);
-				} else {
-				System.out.print("0");
-				}
 				System.out.print("     ");
 			}
 			System.out.println("\n");
@@ -43,11 +40,22 @@ public class Graph {
 		}
 		System.out.println();
 	}
+	
+	private void initArr(){
+		for(int i = 0; i< graphSize; i++){
+			for(int j = 0; j < graphSize; j++){
+				array[i][j] = 0;
+			System.out.println("boobies");
+			}
+		}
+	}
 
-	public String addVertex(char name) {
+	public void addVertex(char name) {
+		Vertex aVertex = new Vertex(name, graphSize);
+		vertices[graphSize] = aVertex;
 		graphSize++;
-		return vertices += "" + name;// hopefully we only use single char names
-										// for our vertices.
+		array = new int[graphSize][graphSize];//don't actually know in advance so we just create a new arr each time we add a vertex.
+		initArr();
 	}
 
 	public void addEdge(int source, int destination) {
