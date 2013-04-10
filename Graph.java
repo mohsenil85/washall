@@ -68,7 +68,14 @@ public class Graph {
 //					System.out.print("vert = "  + vert + "  ");
 //					System.out.println("horiz = " + horiz);
 				if (array[horiz][vert] == 1) {
+					for (int k = 0; k< graphSize; k++){
+						if (array[k][horiz] == 1){
+							array[k][vert]++;
+					System.out.println("special!! " + vertices[vert].name + " to " + vertices[k].name);
+					System.out.println("implies!! " + vertices[horiz].name + " to " + vertices[k].name);
 					
+						}
+					}
 					System.out.println(vertices[horiz].name + " to " + vertices[vert].name);
 				}
 			}
