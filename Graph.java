@@ -1,7 +1,7 @@
 public class Graph {
 	private Vertex[] vertices = new Vertex[30];
 	private int graphSize = 0;
-	private boolean oneOrZero = false;
+//	private boolean oneOrZero = false;
 	private int[][] array;
 	
 	
@@ -45,7 +45,6 @@ public class Graph {
 		for(int i = 0; i< graphSize; i++){
 			for(int j = 0; j < graphSize; j++){
 				array[i][j] = 0;
-			System.out.println("boobies");
 			}
 		}
 	}
@@ -63,7 +62,17 @@ public class Graph {
 	}
 
 	public void washall() {
+		for (int horiz = 0; horiz < graphSize; horiz++) {
+			for (int vert = 0; vert < graphSize; vert++) {
+				
+//					System.out.print("vert = "  + vert + "  ");
+//					System.out.println("horiz = " + horiz);
+				if (array[horiz][vert] == 1) {
+					
+					System.out.println(vertices[horiz].name + " to " + vertices[vert].name);
+				}
+			}
 
+		}
 	}
-
 }

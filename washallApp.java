@@ -18,5 +18,7 @@ public class washallApp {
 		
 		theGraph.printGraph();
 		
+		theGraph.washall();
+		
 	}
 }
